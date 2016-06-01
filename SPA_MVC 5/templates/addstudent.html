@@ -1,37 +1,46 @@
-﻿<form role="form" name="AddStu" style="margin-top:50px">
-    <div class="form-group">
-        <label for="inpFirstName">First Name</label>
-        <input id="inpFirstName" type="text"
-               class="form-control" ng-model="student.FirstName" name="fname" required />
-        <span style="color:red" ng-show="AddStu.fname.$dirty && AddStu.fname.$invalid">
-            <span ng-show="AddStu.fname.$error.required">Student FirstName is required</span>
-        </span>
-    </div>
-    <div class="form-group">
-        <label for="inpLastName">Last Name</label>
-        <input id="inpLastName" type="text"
-               class="form-control" ng-model="student.LastName" name="lname" required />
-        <span style="color:red" ng-show="AddStu.lname.$dirty && AddStu.lname.$invalid">
-            <span ng-show="AddStu.lname.$error.required">Provide Last Name for student.</span>
-        </span>
-    </div>
-    <div class="form-group">
-        <label for="inpAge">Age</label>
-        <input id="inpAge" type="text"
-               class="form-control" ng-model="student.Age" name="age" ng-pattern="pattern" />
-        <span style="color:red" ng-show="AddStu.age.$dirty && AddStu.age.$invalid">
-            <span ng-show="AddStu.age.$error.required">Age is required.</span>
-            <span ng-show="AddStu.age.$error.pattern">Age must be a positive number.</span>
-         </span>
-    </div>
-    <div class="form-group">
-        <label for="inpGender">Gender : </label>
-        <label id="inpGender" ng-repeat="Gender in genders">
-            <input type="radio" ng-model="student.Gender" ng-value="Gender" />{{Gender}}
-        </label>
-    </div>
-</form>
-<input type="submit" id="btnAddStudent" class="btn btn-primary"
-       value="Add Student" ng-click="Add()"
-       ng-disabled="AddStu.fname.$dirty && AddStu.fname.$invalid ||
-        AddStu.lname.$dirty && AddStu.lname.$invalid || AddStu.age.$dirty && AddStu.age.$invalid" />
+﻿<br /> <br />
+
+<div class="row col-lg-12">
+    <button ng-click="changeLanguage('de')" class="btn-primary" translate="BUTTON_LANG_DE"></button>
+    <button ng-click="changeLanguage('en')" class="btn-primary" translate="BUTTON_LANG_EN"></button>
+</div>
+
+<div class="row col-lg-12">
+    <form role="form" name="AddStu" style="margin-top:50px">
+        <div class="form-group">
+            <label for="inpFirstName">{{'FNAME' | translate}}</label>
+            <input id="inpFirstName" type="text"
+                   class="form-control" ng-model="student.FirstName" name="fname" required />
+            <span style="color:red" ng-show="AddStu.fname.$dirty && AddStu.fname.$invalid">
+                <span ng-show="AddStu.fname.$error.required">{{'FNAME_ERROR' | translate}}</span>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="inpLastName">{{'LNAME' | translate}}</label>
+            <input id="inpLastName" type="text"
+                   class="form-control" ng-model="student.LastName" name="lname" required />
+            <span style="color:red" ng-show="AddStu.lname.$dirty && AddStu.lname.$invalid">
+                <span ng-show="AddStu.lname.$error.required">{{'LNAME_ERROR' | translate}}</span>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="inpAge">{{'AGE' | translate}}</label>
+            <input id="inpAge" type="text"
+                   class="form-control" ng-model="student.Age" name="age" ng-pattern="pattern" />
+            <span style="color:red" ng-show="AddStu.age.$dirty && AddStu.age.$invalid">
+                <span ng-show="AddStu.age.$error.required">{{'AGE_ERROR_REQD' | translate}}</span>
+                <span ng-show="AddStu.age.$error.pattern">{{'AGE_ERROR_POSITIVE' | translate}}</span>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="inpGender">{{'GENDER' | translate}} : </label>
+            <label id="inpGender" ng-repeat="Gender in genders">
+                <input type="radio" ng-model="student.Gender" ng-value="Gender" />{{ Gender | translate}}
+            </label>
+        </div>
+    </form>
+    <input type="submit" id="btnAddStudent" class="btn btn-primary"
+           value="{{'ADDSTU' | translate}}" ng-click="Add()"
+           ng-disabled="AddStu.fname.$dirty && AddStu.fname.$invalid ||
+            AddStu.lname.$dirty && AddStu.lname.$invalid || AddStu.age.$dirty && AddStu.age.$invalid" />
+</div>

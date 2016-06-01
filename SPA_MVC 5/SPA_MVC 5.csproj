@@ -266,6 +266,8 @@
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-translate.js" />
+    <Content Include="Scripts\angular-translate.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\stucontrollers.js" />
